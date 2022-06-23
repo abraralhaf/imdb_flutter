@@ -31,7 +31,8 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-
+.coverage/
+/movie_package/coverage/
 # Web related
 lib/generated_plugin_registrant.dart
 
