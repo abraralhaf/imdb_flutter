@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Code Magic CI
 
-[![Codemagic build status](https://api.codemagic.io/apps62b4b3af4f03031787acd4bf/62b66bad5fd8d6686d91feea/status_badge.svg)](https://codemagic.io/apps/apps62b4b3af4f03031787acd4bf/62b66bad5fd8d6686d91feea/latest_build)
+[![Codemagic build status](https://api.codemagic.io/apps/62b4b3af4f03031787acd4bf/62b4b3af4f03031787acd4be/status_badge.svg)](https://codemagic.io/apps/62b4b3af4f03031787acd4bf/62b4b3af4f03031787acd4be/latest_build)
 
 ## Getting Started
 
