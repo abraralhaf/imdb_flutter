@@ -1,8 +1,8 @@
-# tv_series_imdb
+# TMDB 
 
-A new Flutter project.
+Submission final flutter expert Dicoding.
 
-## Code Magic CI
+## Codemagic CI
 
 [![Codemagic build status](https://api.codemagic.io/apps/62b4b3af4f03031787acd4bf/62b4b3af4f03031787acd4be/status_badge.svg)](https://codemagic.io/apps/62b4b3af4f03031787acd4bf/62b4b3af4f03031787acd4be/latest_build)
 
