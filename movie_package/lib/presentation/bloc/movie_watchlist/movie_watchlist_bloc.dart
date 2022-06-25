@@ -46,6 +46,7 @@ class MovieWatchlistBloc
       MovieWatchListStatus event, Emitter<MovieWatchlistState> emit) async {
     final id = event.id;
     final result = await _getWatchListStatus.execute(id);
+
     emit(MovieWatchListIsAdded(result));
   }
 
@@ -61,7 +62,8 @@ class MovieWatchlistBloc
     });
   }
 
-  FutureOr<void> _onMovieWatchListRemove(MovieWatchListRemove event, Emitter<MovieWatchlistState> emit) async {
+  FutureOr<void> _onMovieWatchListRemove(
+      MovieWatchListRemove event, Emitter<MovieWatchlistState> emit) async {
     final movie = event.movieDetail;
     final result = await _removeWatchlist.execute(movie);
     result.fold((failure) {
@@ -70,5 +72,4 @@ class MovieWatchlistBloc
       emit(MovieWatchListMessage(data));
     });
   }
-  
 }

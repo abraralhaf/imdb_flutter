@@ -20,6 +20,7 @@ import 'package:movie_package/presentation/pages/search_page.dart'
     as searchPageMovie;
 import 'package:provider/provider.dart';
 import 'package:tv_series_imdb/common/constants.dart';
+import 'package:tv_series_imdb/common/http_ssl_pinning.dart';
 import 'package:tv_series_imdb/common/utils.dart';
 import 'package:tv_series_imdb/presentation/bloc/detail_tv/detail_tv_bloc.dart';
 import 'package:tv_series_imdb/presentation/bloc/now_playing_tv/now_playing_tv_bloc.dart';
@@ -41,6 +42,7 @@ import 'package:tv_series_imdb/presentation/bloc/search_tv/search_tv_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await HttpSSLPinning.init();
   di.init();
   runApp(const MyApp());
 }
@@ -166,5 +168,6 @@ class MyApp extends StatelessWidget {
         },
       ),
     );
+    
   }
 }

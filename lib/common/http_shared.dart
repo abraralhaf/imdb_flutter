@@ -18,7 +18,7 @@ class Shared {
       } else {
         try {
           certFileBytes =
-              (await rootBundle.load('certificates/imdb_certificates.pem'))
+              (await rootBundle.load('certificates/imdb_certificate.pem'))
                   .buffer
                   .asInt8List();
           log('Successfully load certificate.pem');

@@ -37,13 +37,13 @@ class _DetailTvPageState extends State<DetailTvPage> {
 
   @override
   Widget build(BuildContext context) {
-    List<Tv> recommendations;
     var isWatch = context.select<WatchlistTvBloc, bool>((bloc) {
       if (bloc.state is WatchlistTvIsAdded) {
         return (bloc.state as WatchlistTvIsAdded).isAdded;
       }
       return false;
     });
+    print('init $isWatch');
     return Scaffold(
       body: BlocBuilder<DetailTvBloc, DetailTvState>(
         builder: (context, state) {
@@ -53,7 +53,6 @@ class _DetailTvPageState extends State<DetailTvPage> {
             );
           } else if (state is DetailTvHasData) {
             final tv = state.result;
-
             return CustomScrollView(
               slivers: <Widget>[
                 SliverAppBar(
@@ -95,7 +94,7 @@ class _DetailTvPageState extends State<DetailTvPage> {
                           style: kSubtitle,
                         ),
                         SizedBox(height: 22),
-                        Text('Reccomendation', style: kBodyText),
+                        Text('Recommendation', style: kBodyText),
                         SizedBox(height: 16),
                         BlocBuilder<RecommendationTvBloc,
                             RecommendationTvState>(builder: (context, state) {
@@ -202,7 +201,8 @@ class _watchlistButtonState extends State<_watchlistButton> {
         String messageAdded = "Added Watchlist";
         String messageRemoved = "Removed Watchlist";
         if (stateMessage is WatchlistTvIsAdded) {
-          message = stateMessage.isAdded == false ? messageAdded : messageRemoved;
+          message =
+              stateMessage.isAdded == false ? messageAdded : messageRemoved;
         } else {
           message = !widget.isWatch ? messageAdded : messageRemoved;
         }

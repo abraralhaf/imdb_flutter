@@ -14,7 +14,7 @@ import 'package:tv_series_imdb/presentation/pages/detail_tv_page.dart';
 import 'package:tv_series_imdb/presentation/widgets/tv_card_2.dart';
 
 class WatchlistPage extends StatefulWidget {
-  static const ROUTE_NAME = '/watchlist-movie';
+  static const ROUTE_NAME = '/watchlist_tv';
   @override
   State<WatchlistPage> createState() => _WatchlistPageState();
 }
@@ -33,6 +33,7 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
     routeObserver.subscribe(this, ModalRoute.of(context)!);
   }
 
+  @override
   void didPopNext() {
     context.read<WatchlistTvBloc>().add(WatchlistTvFetch());
   }
@@ -55,6 +56,7 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
               Expanded(
                 child: BlocBuilder<WatchlistTvBloc, WatchlistTvState>(
                   builder: (context, state) {
+                    print(state);
                     if (state is WatchlistTvLoading) {
                       return Center(child: CircularProgressIndicator());
                     } else if (state is WatchlistTvHasData) {

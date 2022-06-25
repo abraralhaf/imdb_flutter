@@ -22,31 +22,48 @@ class TvCardV2 extends StatelessWidget {
           );
         },
         child: Card(
-          child: ListTile(
-            leading: Expanded(
-              child: ClipRRect(
-                child: CachedNetworkImage(
-                  imageUrl: '$BASE_IMAGE_URL${tv.posterPath}',
-                  width: 40,
-                  placeholder: (context, url) => Center(
-                    child: CircularProgressIndicator(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 1,
+                child: ClipRRect(
+                  child: CachedNetworkImage(
+                    imageUrl: '$BASE_IMAGE_URL${tv.posterPath}',
+                    width: 40,
+                    placeholder: (context, url) => Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
-            ),
-            title: Text('${tv.name}', style: kTitlesmall),
-            subtitle: Container(
-              margin: const EdgeInsets.only(top: 4, bottom: 4),
-              child: Text(
-                  tv.overview == ""
-                      ? "Sorry, overview was empty or not filled by system"
-                      : '${tv.overview}',
-                  style: kBodyText,
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis),
-            ),
+              Expanded(
+                flex: 3,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('${tv.name}', style: kTitlesmall),
+                      Container(
+                        margin: const EdgeInsets.only(top: 4, bottom: 4),
+                        child: Text(
+                            tv.overview == ""
+                                ? "Sorry, overview was empty or not filled by system"
+                                : '${tv.overview}',
+                            style: kBodyText,
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),

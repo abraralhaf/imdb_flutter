@@ -58,7 +58,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
                 IconButton(
                     onPressed: () {
                       //crashlytic
-                      FirebaseCrashlytics.instance.crash();
+                      // FirebaseCrashlytics.instance.crash();
                       Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
                     },
                     icon: Icon(
@@ -103,9 +103,9 @@ class _HomeTvPageState extends State<HomeTvPage> {
                         );
                       } else if (state is NowPlayingTvHasData) {
                         return TvList(state.result);
-                      } else if(state is NowPlayingTvError){
+                      } else if (state is NowPlayingTvError) {
                         return Text(state.message);
-                      }else{
+                      } else {
                         return Center(
                           child: Text('Failed'),
                         );
@@ -133,7 +133,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
                   ),
                   Container(
                     height: 250,
-                    child: BlocBuilder<PopularTvBloc,PopularTvState>(
+                    child: BlocBuilder<PopularTvBloc, PopularTvState>(
                       builder: (context, state) {
                         if (state is PopularTvLoading) {
                           return Center(
@@ -141,9 +141,9 @@ class _HomeTvPageState extends State<HomeTvPage> {
                           );
                         } else if (state is PopularTvHasData) {
                           return TvList(state.result);
-                        } else if(state is PopularTvError) {
+                        } else if (state is PopularTvError) {
                           return Text(state.message);
-                        } else{
+                        } else {
                           return Text('Failed');
                         }
                       },
@@ -178,9 +178,9 @@ class _HomeTvPageState extends State<HomeTvPage> {
                           );
                         } else if (state is TopRatedTvHasData) {
                           return TvList(state.result);
-                        } else if (state is TopRatedTvError){
+                        } else if (state is TopRatedTvError) {
                           return Text(state.message);
-                        } else{
+                        } else {
                           return Text("Failure");
                         }
                       },
